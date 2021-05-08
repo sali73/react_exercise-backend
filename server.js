@@ -23,11 +23,11 @@ const corsOptions = {
 
 //==| DATABASE CONNECTION |
 mongoose.connect(
-  "mongodb+srv://salimohamed:Sa101209ah@@cluster0.l7sxm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  'mongodb+srv://salimohamed:Sa101209ah@@cluster0.l7sxm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  }
+  })
 );
 db.on("open", () => {
   console.log("🌐    Connected to MONGO.    🌐");
