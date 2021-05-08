@@ -20,5 +20,8 @@
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {},
-  "description": ""
+  "description": "",
+  "engines": {
+    "node": "14.16.0"
+  }
 }
