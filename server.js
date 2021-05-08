@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 const calculatorController = require("./controllers/calculator.js");
 const db = mongoose.connection;
 const MONGO_URI = process.env.MONGODB_URL || "mongodb://localhost:27017/cul";
@@ -23,12 +23,13 @@ const corsOptions = {
 
 //==| DATABASE CONNECTION |
 mongoose.connect(
-  'mongodb+srv://salimohamed:Sa101209ah@@cluster0.l7sxm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+  "mongodb+srv://salimohamed:Sa101209ah@@cluster0.l7sxm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  })
+  }
 );
+
 db.on("open", () => {
   console.log("🌐    Connected to MONGO.    🌐");
   console.log(`-------------------------------`);
