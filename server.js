@@ -1,26 +1,22 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const cors = require("cors");
 const PORT = process.env.PORT || 3001;
-
 const calculatorController = require("./controllers/calculator.js");
 const db = mongoose.connection;
 const MONGO_URI = process.env.MONGODB_URL || "mongodb://localhost:27017/cul";
-const cors = require("cors");
-
-// app.js or server.js
-require("dotenv").config();
-// REST OF YOUR CODE
 
 //==| Cross Origin Resource Sharing + Whitelist |
-const whitelist = ["http://localhost:3001"];
-
+const whitelist = ["http://localhost:3000", MONGO_URI];
 const corsOptions = {
-  origin: function (origin, callback) {
+  origin: function (origin, cb) {
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
-      callback(new Error("Not allowed by CORS"));
+      callback(
+        new Error("Not permitted by Cross Origin Resource Sharing (CORS)!")
+      );
     }
   },
 };
@@ -44,6 +40,9 @@ db.on("error", (error) => {
 });
 
 // require('custom-env').env()
+// app.js or server.js
+require("dotenv").config();
+// REST OF YOUR CODE
 
 ////////////////////
 //Middelwear
